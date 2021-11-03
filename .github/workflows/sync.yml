@@ -26,7 +26,7 @@ jobs:
 
       - name: Синхронизация с помощью yard
         shell: bash
-        run: yard -v process --work-dir ./ ./yardsettings.json
+        run: yard process --work-dir ./ ./yardsettings.json
 
       - name: Отправка изменений в github репо
         uses: ad-m/github-push-action@master # fixme
