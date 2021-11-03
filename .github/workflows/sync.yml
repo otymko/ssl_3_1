@@ -32,7 +32,7 @@ jobs:
           yard process --work-dir ./ ./yardsettings.json
 
       - name: Отправка изменений в github репо
-        uses: ad-m/github-push-action@master # fixme
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
+        shell: cmd
+        run: |
+          chcp 65001
+          git push --set-upstream origin master
