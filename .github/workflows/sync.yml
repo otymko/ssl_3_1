@@ -16,8 +16,9 @@ jobs:
         uses: actions/checkout@v2.4.0
 
       - name: Подготовка окружения
-        shell: bash
+        shell: cmd
         run: |
+          chcp 65001
           mkdir distr
           copy description.json distr
           cd distr
@@ -25,8 +26,10 @@ jobs:
           copy description.json SSL31
 
       - name: Синхронизация с помощью yard
-        shell: bash
-        run: yard process --work-dir ./ ./yardsettings.json
+        shell: cmd
+        run: |
+          chcp 65001
+          yard process --work-dir ./ ./yardsettings.json
 
       - name: Отправка изменений в github репо
         uses: ad-m/github-push-action@master # fixme
