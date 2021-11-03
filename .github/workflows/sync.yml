@@ -1,6 +1,9 @@
 name: Синхронизация конфигурации
 
-on: workflow_dispatch
+on: 
+  schedule:
+    - cron: 0 12 * * * # каждый день в 12:00
+  workflow_dispatch:
 
 env:
   YARD_RELEASES_USER: ${{ secrets.YARD_RELEASES_USER }}
